@@ -1,76 +1,57 @@
 <?php
-// this file will route all requests from index to different controllers
+//this file describes router class. The main purpose of Router is to identify //
+//what controller should be started 
+//Next this data will be sent to dispatcher
 
-//the .htaccess was rewrited to write all data begore '?' to "q"
-//following row takes the 'q' query to 'request'. the other thing will be handled in router
-
-$request = '?q';
-
-//now we need to parse the request
-// explode() creates array by splitting string using a spliter ('/')
-//(!) this record needs to be rewrited for better error handling
-list ($controller, $action) = explode('/', $request);
-
-//definition of action
-
-//set action to 'index' as default if it is absent
-if (empty($action)) {
-    $action = 'index';
-}
-
-//add 'Action' appendix to meat naming of methods
-$action = strtolower($action) . 'Action';
-
-//build paramts by deleting 'q' part used above
-$params = '$_GET';
-unset($params['q']);
-
-//TESTING!!!
-//this code is used for testing the Router only
-print "The page you've requested is ($controller::$action)<br />";
-
-$vars = print_r($params,TRUE);
-print "The following GET vars were passed to the page:<pre>".$vars."</pre>";
-//END OF TESTING!!!!
-
-//create the path to file. ajusting cases to lower.
-$target = SERVER_ROOT."/controllers/".strtolower($controller).'.php';
-
-// inlude the TARGET code to this PHP file
-if (file_exists($target))
+//Class definition
+class Router
 {
-    include_once($target);
+    //the following vars will be sent to dispatcher
     
-    //Add appropriate appendics + ajust Case to meet Class naming convention.
-    $class = ucfirst($controller).'Controller';
-    
-    //Initiate the relevant class instance
-    if (class_exists($class))
+    public function process ($path, $params)
     {
-        $controllerInstance = new $class;
+        //requesting pathParsing
+        return array ($this -> pathParse($path), "params"=>$params);
         
-        //initiate action. check existance
-        if (method_exists($controllerInstance, $action)) {
-            //run action
-            $controllerInstance->$action($params);    
-        }
-        //action error handling
-        else {
-            die ('Action '.$action.' not found');
-        }
-        
+        //populating
     }
-    else
+    private function pathParse ($path)
     {
-        //class error handling
-        die('class '.$class.' does not exist');
+               
+        // next step parses the $path to route containg "controller", "action" 
+        // and a posible error
+        $route= explode('/', $path);
+        
+            
+        //identifying the "controller" and "action"
+        //chekisng if wrong URL submitted
+        if (!empty($route[2])){
+            die ("Error 404 <br> Requested link " . SITE_ROOT . $path . " does not exist!" );
+        }
+        else{
+            //checking the provided controller. If it's not provided 
+            //than controller is index
+            if (empty($route[0])){
+                $controller = "index";
+                $action = "index";                
+            }
+            else{
+            $controller = strtolower($route[0]);
+                //checking provoided action
+                if(empty($route[1])){
+                    $action = "index"."Action";
+                }
+                else{
+                    $action = strtolower($route[1]) . "Action";
+                }
+            }
+        };
+        //creating allso a var for class and controler path
+        $class = ucfirst($controller) . "Controller";
+        $controllerPath = SERVER_ROOT . "/conrollers/$controller.php";
+        
+        //adding all necessary vars to an array
+        return compact('controllerPath','class', 'action');
     }
-}
-else
-{
-    //File error handling. there is no such file in controllers
-    die('page does not exist');
-}
 
-//at this point we have the Controller included and class initiated
-//now we need to pass the GET values to main funcion of initiated class
+};

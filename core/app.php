@@ -17,9 +17,11 @@ class App
         $this->requestParams = $params;
     }
     
+    //this part is gettin the all application parts connected
+    
     public function run()
     {
-        // Load classloader
+        // Load classloader - autoloader. This component will auto-include files with relevant classes
         require __DIR__.'/autoloader.php';
         new Autoloader();
 
@@ -29,11 +31,16 @@ class App
         // Load config
         require SERVER_ROOT . '/configs/' . APP_ENV . '.php';
         
+        ///HERE is the latest point where development stopped
+        
         // Process URL
         require __DIR__.'/router.php';
         $router = new Router();
         $forDispatch = $router->process($this->requestPath, $this->requestParams);
         
+        print '<pre>';
+        var_dump($forDispatch);
+        print '</pre>';
         // Get content & blocks
         //dispatch
         require __DIR__.'/dispatcher.php';
