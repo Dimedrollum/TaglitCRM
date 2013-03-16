@@ -10,4 +10,7 @@ define('SERVER_ROOT', __DIR__);
 define('SITE_ROOT', 'http://localhost/'); 
 
 //send data to router
-require_once(SERVER_ROOT.'/core/'.'router.php');
+require_once(SERVER_ROOT.'/core/'.'app.php');
+
+$app = new App();
+$app->run();

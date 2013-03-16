@@ -3,7 +3,8 @@
 
 //the .htaccess was rewrited to write all data begore '?' to "q"
 //following row takes the 'q' query to 'request'. the other thing will be handled in router
-$request = $_GET['q'];
+
+$request = '?q';
 
 //now we need to parse the request
 // explode() creates array by splitting string using a spliter ('/')
