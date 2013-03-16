@@ -12,7 +12,9 @@ class Router
     {
         //requesting pathParsing
         $processResult = $this -> pathParse($path);
-        $processResult['params']=$params;
+        if (!empty($params)){
+            $processResult['params']=$params;
+        }
         return $processResult;
     }
     private function pathParse ($path)

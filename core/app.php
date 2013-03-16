@@ -39,7 +39,7 @@ class App
         $forDispatch = $router->process($this->requestPath, $this->requestParams);
         
         print '<pre>';
-        print print_r($forDispatch, TRUE);
+        print_r($forDispatch);
         print '</pre>';
         // Get content & blocks
         //dispatch
