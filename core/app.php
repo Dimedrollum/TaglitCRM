@@ -23,18 +23,28 @@ class App
         require __DIR__.'/autoloader.php';
         new Autoloader();
 
+        // Get env
+        require SERVER_ROOT . '/configs/env.php';
+        
         // Load config
+        require SERVER_ROOT . '/configs/' . APP_ENV . '.php';
         
         // Process URL
+        require __DIR__.'/router.php';
         $router = new Router();
+        $forDispatch = $router->process($this->requestPath, $this->requestParams);
         
-        // Get content
+        // Get content & blocks
         //dispatch
-        
-        // Get blocks
+        require __DIR__.'/dispatcher.php';
+        $dispatcher = new Dispatcher($forDispatch);
+        $content = $dispatcher->build();
         
         // Layout
-        
+        require __DIR__.'/layout.php';
+        $layout = new Layout($content);
+
         // return HTML
+        echo $layout->render();
     }
 }

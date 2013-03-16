@@ -22,7 +22,7 @@ if (empty($action)) {
 $action = strtolower($action) . 'Action';
 
 //build paramts by deleting 'q' part used above
-$params = $_GET;
+$params = '$_GET';
 unset($params['q']);
 
 //TESTING!!!
