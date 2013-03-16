@@ -1,13 +1,13 @@
 <?php
 //This file will take News handling
-class News_Controller
+class NewsController
 {
     //next var will contain the link to a relevant View for this controller
     public $template = 'news';
     
     //the next function will be called by index.php
     //parraments are parced GET posted to index.php
-    public function main (array $getVars)
+    public function listAction (array $getVars)
     {
         //TEST!!!!
         //this is a test , and we will be removing it later
@@ -23,9 +23,6 @@ class News_Controller
         $newsModel = new News_Model;
         
         //testing that the model is included
-        print 'this is an initiated model'.print_r($newsModel);
+        print 'this is an initiated model '.print_r($newsModel, true);
     }
 }
-
-
-?>
