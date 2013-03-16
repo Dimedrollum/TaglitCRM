@@ -11,9 +11,9 @@ class Router
     public function process ($path, $params)
     {
         //requesting pathParsing
-        return array ($this -> pathParse($path), "params"=>$params);
-        
-        //populating
+        $processResult = $this -> pathParse($path);
+        $processResult['params']=$params;
+        return $processResult;
     }
     private function pathParse ($path)
     {
@@ -46,12 +46,11 @@ class Router
                 }
             }
         };
-        //creating allso a var for class and controler path
+        //creating allso a var for class
         $class = ucfirst($controller) . "Controller";
-        $controllerPath = SERVER_ROOT . "/conrollers/$controller.php";
-        
+              
         //adding all necessary vars to an array
-        return compact('controllerPath','class', 'action');
+        return compact('class', 'action');
     }
 
 };

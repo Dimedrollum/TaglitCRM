@@ -36,9 +36,6 @@ class Autoloader {
                 //and if yes we include it
                 require $file;
             }
-            else{
-                die ("The file contining $className class is not located at $file");
-            }
         }
         else{
             die ("The requested $className class does not exist");
