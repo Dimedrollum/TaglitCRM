@@ -38,9 +38,7 @@ class App
         $router = new Router();
         $forDispatch = $router->process($this->requestPath, $this->requestParams);
         
-        print '<pre>';
-        print_r($forDispatch);
-        print '</pre>';
+        
         // Get content & blocks
         //dispatch
         require __DIR__.'/dispatcher.php';
