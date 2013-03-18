@@ -37,8 +37,5 @@ class Autoloader {
                 require $file;
             }
         }
-        else{
-            die ("The requested $className class does not exist");
-        }
     }
 }

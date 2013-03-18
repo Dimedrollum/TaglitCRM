@@ -1,6 +1,6 @@
 <?php
 //This file will take News handling
-print "file is connected";
+print "<br>file is connected<br>";
 class NewsController
 {
     //next var will contain the link to a relevant View for this controller

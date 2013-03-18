@@ -5,31 +5,39 @@
 
 class Dispatcher
 {
-    
+    //at this point i declare all class atributes
     protected $controllerClass;
     protected $controllerAction;
     protected $actionParams;
     protected $blocksRequired;
     
-
+    //next part initiated the class atributes from input
     public function __construct($dispatchRequest) 
     {
         
         $this->controllerClass = $dispatchRequest['class'];
         $this->controllerAction =$dispatchRequest['action'];
         $this->actionParams = $dispatchRequest['params'];
-        $this->blocksRequired= array ('header','side','footer');
+        $this->blocksRequired= array ('header','nav','footer');
       
     }
-
+    
     public function build()
     {
-        //test
-        
-        print "bulid menthod is initiated<br>";
-        print_r($this->controllerClass);
+        //initiating MVC and writing result to a relevant Content cell
         $controller = new $this->controllerClass;
-        print_r($controller);
+        $Content['main']=$controller-> {$this->controllerAction}($this->actionParams);
+        
+        //initiating blocs and writing result to relevant content cells
+        foreach ($this->blocksRequired as $blockName) {
+            $block[$blockName]= new $blockName;
+            $Content[$blockName]= $block[$blockName]->returnContent();
+        }
+        
+        //returning array
+        
+        return $Content;
+        
         
     }
 };
