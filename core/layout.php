@@ -18,7 +18,7 @@ class layout
         foreach ($sentContent as $key=>$value){
             if (substr($value, 0,5)=='Error'){
                 $this->error = true;
-                $this->errorCausedBy = $key;
+                $this->errorCausedBy[] = $key;
             }
             $this->$key = $value;
         }

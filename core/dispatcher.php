@@ -29,7 +29,7 @@ class Dispatcher
         $buildContent['main']= $this->getMainData();
         
         //initiating blocs and writing result to relevant content cells
-        
+        $buildContent = array_merge($buildContent, $this->getBlocs());
         //returning array
         
         return $buildContent;
@@ -59,11 +59,19 @@ class Dispatcher
             }
             
         }
+        // this function is to call all blocks and get data from them.
     private function getBlocs()
-        {
+    {
          foreach ($this->blocksRequired as $blockName) {
-            $block[$blockName]= new $blockName;
-            $blocksArray[$blockName]= $block[$blockName]->returnContent();
-        }           
-        }
+             $blockClassName = ucfirst($blockName) . "Block";
+             if (class_exists($blockClassName)){
+                 $block[$blockName]= new $blockClassName;
+                 $blocksArray[$blockName]= $block[$blockName]->returnContent();            
+             }
+             else{
+                 $blocksArray[$blockName]="Error: Block class is not found";
+             }
+        }  
+        return $blocksArray;
+    }
 };
