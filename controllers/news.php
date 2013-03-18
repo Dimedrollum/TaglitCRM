@@ -1,11 +1,19 @@
 <?php
 //This file will take News handling
+print "file is connected";
 class NewsController
 {
     //next var will contain the link to a relevant View for this controller
     public $template = 'news';
     
-    //the next function will be called by index.php
+    //creating a construct
+    
+    public function __construct()
+    {
+        print "construct";
+    }
+
+//the next function will be called by index.php
     //parraments are parced GET posted to index.php
     public function listAction (array $getVars)
     {
