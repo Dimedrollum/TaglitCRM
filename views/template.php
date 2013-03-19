@@ -1,9 +1,10 @@
 <?php
-echo "test";
-class TemplateView 
+
+//this is the class wich will pack data to approporiate view
+class TemplateView
 {
-    public function returnContent($modelData)
+    public function returnData ($args)
     {
-        return "This will be an thml version of data : $modelData" ;
+        return "This is the View return with following args:<br> $args";
     }
 }

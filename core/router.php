@@ -33,7 +33,7 @@ class Router
             //than controller is index
             if (empty($route[0])){
                 $controller = "index";
-                $action = "index";                
+                $action = "index"."Action";                
             }
             else{
             $controller = strtolower($route[0]);
