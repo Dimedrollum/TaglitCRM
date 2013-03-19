@@ -14,9 +14,16 @@ class layout
     //the constructor sets the atributes according request
     public function __construct($sentContent)
     {
-        //fetching attributes form every 
-        foreach ($sentContent as $key=>$value){
-            if (substr($value, 0,5)=='Error'){
+        //fetching main data
+        if (substr($sentContent['main'],0 ,5)=='Error'){
+            $this->error= true;
+            $this->errorCausedBy[] = 'main';
+        };
+        $this->main = $sentContent['main'];
+
+        //fetching attributes form every block
+        foreach ($sentContent['blocks'] as $key=>$value){
+            if (substr($value, 0, 5)=='Error'){
                 $this->error = true;
                 $this->errorCausedBy[] = $key;
             }
@@ -32,4 +39,3 @@ class layout
     }
     
 }
-?>

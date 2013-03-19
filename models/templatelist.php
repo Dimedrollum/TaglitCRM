@@ -4,9 +4,8 @@
 
 class TemplateListModel
 {
-    public function __construct()
-    {
-        print 'This is the news Model<br>';
-    }
+   public function returnData($params)
+   {
+       return "The sent parmas to model are". print_r($params, true);
+   }
 }
-?>

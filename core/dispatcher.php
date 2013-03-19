@@ -29,7 +29,7 @@ class Dispatcher
         $buildContent['main']= $this->getMainData();
         
         //initiating blocs and writing result to relevant content cells
-        $buildContent = array_merge($buildContent, $this->getBlocs());
+        $buildContent['blocks']=$this->getBlocks();
         //returning array
         
         return $buildContent;
@@ -39,7 +39,7 @@ class Dispatcher
     // data
     private function getMainData()
         {
-            //chek if controller exists
+            //check if controller exists
             if (class_exists($this->controllerClass)) {
                 $controller = new $this->controllerClass;
                 //check method existance
@@ -60,7 +60,7 @@ class Dispatcher
             
         }
         // this function is to call all blocks and get data from them.
-    private function getBlocs()
+    private function getBlocks()
     {
          foreach ($this->blocksRequired as $blockName) {
              $blockClassName = ucfirst($blockName) . "Block";
