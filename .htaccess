@@ -1,4 +1,5 @@
 RewriteEngine On
 RewriteBase /TaglitCRM
 RewriteRule ^index.php - [L]
+RewriteRule ^public - [L]
 RewriteRule ^(.*)$ index.php?q=$1 [L,QSA]
