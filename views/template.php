@@ -14,6 +14,10 @@ class TemplateView
     // this maethod will return data packed to main view
     public function returnData ($modelData)
     {   
+        //check model error
+        if (is_null($modelData)){
+            return "Error: Problem in Model";
+        }
         //checking html existance
         if (file_exists($this->htmlPath)){
             //creating variables from every modelData array position

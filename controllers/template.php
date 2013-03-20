@@ -23,6 +23,16 @@ class TemplateController
         return $this->packToView($modelReturn);
 
     }
+     public function dbAction (array $getVars)
+    {
+        //here we initiate the model obj and request the data
+        $newModel = new TemplateDBModel;
+        $modelReturn = $newModel->returnData($getVars);
+        
+        //at this point we request data to be packed to view and returned form controller
+        return $this->packToView($modelReturn);
+
+    }
     
     //this is an index action
      public function indexAction (array $getVars)
