@@ -7,7 +7,7 @@
 define('SERVER_ROOT', __DIR__);
 
 //definition of website. In local case it is localhost
-define('SITE_ROOT', 'http://localhost/'); 
+define('SITE_ROOT', 'http://localhost/TaglitCRM/'); 
 
 //send data to router
 require_once(SERVER_ROOT.'/core/'.'app.php');

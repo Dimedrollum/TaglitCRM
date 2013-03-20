@@ -11,14 +11,14 @@
 <meta name="author" content="mogoolab.com" />
 <meta http-equiv="X-UA-Compatible" content="IE=8" />
 
-<link rel="stylesheet" type="text/css" media="all" href="public/error/style.css" />
-<link rel="stylesheet" type="text/css" media="all" href="public/error/backgrounds.css" />
+<link rel="stylesheet" type="text/css" media="all" href="<?echo SITE_ROOT?>public/error/style.css" />
+<link rel="stylesheet" type="text/css" media="all" href="<?echo SITE_ROOT?>public/error/backgrounds.css" />
 
-<link rel="stylesheet" type="text/css" media="all" href="public/error/themes/gray/css/style.css" />
+<link rel="stylesheet" type="text/css" media="all" href="<?echo SITE_ROOT?>public/error/themes/gray/css/style.css" />
 
 
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js"></script>
-<script type="text/javascript" src="public/error/js/jquery-global.js"></script>
+<script type="text/javascript" src="<?echo SITE_ROOT?>public/error/js/jquery-global.js"></script>
 
 <!--[if IE]>
 <script type="text/javascript" src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -38,7 +38,7 @@
         </div>
         <div class="rightHolder">
             <div class="message"><p>The page you are looking for might have been removed, had its name changed, or is temporarily unavailable.</p></div>
-            <div class="robotik"><img src="public/error/images/robotik.png" alt="Oooops....we can’t find that page." title="Oooops....we can’t find that page." id="robot"></div>
+            <div class="robotik"><img src="<?echo SITE_ROOT?>public/error/images/robotik.png" alt="Oooops....we can’t find that page." title="Oooops....we can’t find that page." id="robot"></div>
             <div class="tryToMessage">
                 The error caused by:
                 <ul>

@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<link rel="stylesheet" type="text/css" href="public/style.css" />
+<link rel="stylesheet" type="text/css" href="<?echo SITE_ROOT?>public/style.css" />
 <title>TaglitCRM</title>
 </head>
 
@@ -57,7 +57,7 @@
         
         <div id="content_top"></div>
         <div id="content_main">
-            <? echo $this->main?>
+            <? echo $main?>
 <!--        	<h2>You may use this template in any manner you like. All I ask is that you leave the link back to my site at the bottom of the page. </h2>
         	<p>&nbsp;</p>
            	<p>&nbsp;</p>
