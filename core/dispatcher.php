@@ -9,7 +9,7 @@ class Dispatcher
     protected $controllerClass;
     protected $controllerAction;
     protected $actionParams;
-    protected $blocksRequired;
+    protected $blocksRequired=array ('header','menu','footer','links');
     
     //next part initiated the class atributes from input
     public function __construct($dispatchRequest) 
@@ -18,7 +18,6 @@ class Dispatcher
         $this->controllerClass = $dispatchRequest['class'];
         $this->controllerAction =$dispatchRequest['action'];
         $this->actionParams = $dispatchRequest['params'];
-        $this->blocksRequired= array ('header','nav','footer');//check layout before changing these values
       
     }
     //this is a main method which is called from App. The main purpose is

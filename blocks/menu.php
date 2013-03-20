@@ -1,8 +1,8 @@
 <?php
 //this class sends info to footer
-class HeaderBlock
+class MenuBlock
 {
-    private $blockHtml = "header";
+    private $blockHtml = "menu";
     private $blockPath;
 
 

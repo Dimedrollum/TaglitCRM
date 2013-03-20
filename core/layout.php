@@ -57,8 +57,8 @@ class Layout
         }
         else{
             //create error message
+            $errorMessage = null;
             foreach ($this->errorCausedBy as $value){
-                $errorMessage = null;
                 $errorMessage = $errorMessage . "<li>" . $this->content[$value] . "</li>";
             }
             
