@@ -20,8 +20,9 @@ class TemplateDBModel
             return null;
        }
        //getting vars
-       $name = $this->dbLink->query("SELECT * FROM  `template` WHERE  `Key` LIKE  'Name'",MYSQLI_USE_RESULT);
-       var_dump($name);
-       return array ('params'=>"these".print_r($params,true), 'name'=>'Dll', 'age'=>28);
+       $name = mysqli_fetch_assoc($this->dbLink->query("SELECT * FROM  `template` WHERE  `Key` LIKE  'Name'",MYSQLI_USE_RESULT));
+       $age = mysqli_fetch_assoc($this->dbLink->query("SELECT * FROM  `template` WHERE  `Key` LIKE  'Age'",MYSQLI_USE_RESULT));
+
+       return array ('params'=>"these".print_r($params,true), 'name'=>$name['Value'], 'age'=>$age['Value']);
     }
 }
