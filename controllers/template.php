@@ -5,11 +5,13 @@ class TemplateController
 {
     //defining view that will be loaded
     protected $viewName = "template";
+    protected $viewHtml= "index";
 
     //this is a test method which sends request to model
     //gets data form model
     //and requests packing to view
     
+    // this is a template of requested action
     
     public function listAction (array $getVars)
     {
@@ -22,6 +24,7 @@ class TemplateController
 
     }
     
+    //this is an index action
      public function indexAction (array $getVars)
     {
         //here we initiate the model obj and request the data
@@ -38,6 +41,7 @@ class TemplateController
     {
         $viewClass = ucfirst($this->viewName) . "View";
         $view = new $viewClass;
+        $view->setHtml($this->viewHtml);
         $mainRender = $view->returnData($dataToPack);
         return $mainRender;
     }

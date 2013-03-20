@@ -6,6 +6,9 @@ class TemplateListModel
 {
    public function returnData($params)
    {
-       return "The sent parmas to model are". print_r($params, true);
+       $modelResult['params'] = "The sent parmas to model are". print_r($params, true);
+       $modelResult['name'] = "DLL";
+       $modelResult['age'] = 28;
+       return $modelResult;
    }
 }
