@@ -10,7 +10,7 @@ class App
     // Sets values of properties (that need some calculations) on creating new object
     public function __construct()
     {
-        $this->requestPath = $_GET['q'];
+        $this->requestPath = (!empty($_GET['q'])) ? $_GET['q'] : null;
         
         $params = $_GET;
         unset($params['q']);
