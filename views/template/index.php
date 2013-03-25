@@ -5,7 +5,7 @@
        	  <h3>This data was sent by model</h3>
           <p>BlaBlabla:</p>
             <ul>
-                <li><? echo $params?></li>
-                <li>My name is: <? echo $name?></li>
-                <li>And I'm <? echo $age?> YO.</li>
+                <li><?php echo $params?></li>
+                <li>My name is: <?php echo $name?></li>
+                <li>And I'm <?php echo $age?> YO.</li>
             </ul>

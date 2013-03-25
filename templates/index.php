@@ -2,20 +2,20 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-        <link rel="stylesheet" type="text/css" href="<? echo SITE_ROOT ?>public/style.css" />
+        <link rel="stylesheet" type="text/css" href="<?php echo SITE_ROOT ?>public/style.css" />
         <title>TaglitCRM</title>
     </head>
 
     <body>
         <div id="container">
             <div id="header">
-                <? echo $header ?>
+                <?php echo $header ?>
                 <!--<h1>Taglit<span class="off">CRM</span></h1>
                 <h2>ICC Chisinau Group Tracker</h2>-->
             </div>   
 
             <div id="menu">
-                <? echo $menu ?>
+                <?php echo $menu ?>
                 <!--        	<ul>
                                 <li class="menuitem"><a href="#">Home</a></li>
                                 <li class="menuitem"><a href="#">About</a></li>
@@ -31,7 +31,7 @@
                 <div id="leftmenu_top"></div>
 
                 <div id="leftmenu_main">    
-                    <? echo $links?>
+                    <?php echo $links?>
 <!--                    <h3>Links</h3>
                     <ul>
                         <li><a href="#">SEO</a></li>
@@ -58,7 +58,7 @@
 
                 <div id="content_top"></div>
                 <div id="content_main">
-                    <? echo $main ?>
+                    <?php echo $main ?>
                     <!--        	<h2>You may use this template in any manner you like. All I ask is that you leave the link back to my site at the bottom of the page. </h2>
                                     <p>&nbsp;</p>
                                     <p>&nbsp;</p>
@@ -76,7 +76,7 @@
                 <div id="content_bottom"></div>
 
                 <div id="footer">
-                    <? echo $footer ?>
+                    <?php echo $footer ?>
                     <!--<h3><a href="http://www.bryantsmith.com">florida web design</a></h3>-->
                 </div>
             </div>
