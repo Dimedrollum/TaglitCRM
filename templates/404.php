@@ -17,7 +17,7 @@
 <link rel="stylesheet" type="text/css" media="all" href="<?echo SITE_ROOT?>public/error/themes/gray/css/style.css" />
 
 
-<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js"></script>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
 <script type="text/javascript" src="<?echo SITE_ROOT?>public/error/js/jquery-global.js"></script>
 
 <!--[if IE]>

@@ -62,14 +62,18 @@ class Dispatcher
     private function getBlocks()
     {
          foreach ($this->blocksRequired as $blockName) {
-             $blockClassName = ucfirst($blockName) . "Block";
-             if (class_exists($blockClassName)){
-                 $block[$blockName]= new $blockClassName;
-                 $blocksArray[$blockName]= $block[$blockName]->returnContent();            
-             }
-             else{
-                 $blocksArray[$blockName]="Error: Block class is not found";
-             }
+//             $blockClassName = ucfirst($blockName) . "Block";
+//             if (class_exists($blockClassName)){
+//                 $block[$blockName]= new $blockClassName;
+//                 $blocksArray[$blockName]= $block[$blockName]->returnContent();            
+//             }
+//             else{
+//                 $blocksArray[$blockName]="Error: Block class is not found";
+//             }
+             $block[$blockName] = new BasicBlock($blockName);
+             $blocksArray[$blockName] = $block[$blockName]->returnContent();
+             
+             
         }  
         return $blocksArray;
     }

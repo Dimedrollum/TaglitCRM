@@ -28,8 +28,8 @@ class Layout
         }
         
         //creating html path and Error paht
-        $this->htmlPath = SERVER_ROOT."/public/".$this->layoutHtml.".php";
-        $this->errorPath = SERVER_ROOT."/public/error/".$this->errorHtml.".php";
+        $this->htmlPath = SERVER_ROOT."/templates/".$this->layoutHtml.".php";
+        $this->errorPath = SERVER_ROOT."/templates/".$this->errorHtml.".php";
 
         
         //fetching main data
