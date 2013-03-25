@@ -32,7 +32,8 @@ class ViewLoaderLib {
     {
         //check model error
         if (is_null($this->modelReturn)){
-            $this->viewRender= "Error: Problem in Model";
+            new ErrorHandlerLib("Problem in requested Model");
+                    die();
         }
         //checking html existance
         if (file_exists($this->viewPath)){
@@ -48,7 +49,8 @@ class ViewLoaderLib {
             $this -> viewRender =  ob_get_clean();
         }
         else{
-            $this ->viewRender =  "Error: View HTML is absent";
+            new ErrorHandlerLib("View HTML is absent");
+                    die();
         }
     }
 

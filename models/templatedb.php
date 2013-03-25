@@ -17,7 +17,8 @@ class TemplateDBModel
     public function returnData($params)
     {
        if (!$this->dbLink){
-            return null;
+            new ErrorHandlerLib("DB is not conncted");
+                    die();
        }
        //getting vars
        $name = mysqli_fetch_assoc($this->dbLink->query("SELECT * FROM  `template` WHERE  `Key` LIKE  'Name'",MYSQLI_USE_RESULT));

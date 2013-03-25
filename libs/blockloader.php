@@ -17,7 +17,8 @@ class BlockLoaderLib
     public function returnContent()
     {
         if (!file_exists($this->blockPath)){
-            return "Error: Block $this->blockName HTML is not found";
+            new ErrorHandlerLib("Block $this->blockName HTML is not found");
+                    die();
         }
         ob_start();
         include $this->blockPath;

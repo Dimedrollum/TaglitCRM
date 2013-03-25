@@ -49,12 +49,14 @@ class Dispatcher
                 }
                 //return if wrong action
                 else{
-                    return 'Error: wrong action';
+                    new ErrorHandlerLib("Wrong action was requested");
+                    die();
                 }
             }
             else{
                 //return if wrong controller
-                return 'Error: wrong controller';
+                new ErrorHandlerLib("Wrong controller was requested");
+                    die();
             }
             
         }
@@ -62,14 +64,8 @@ class Dispatcher
     private function getBlocks()
     {
          foreach ($this->blocksRequired as $blockName) {
-//             $blockClassName = ucfirst($blockName) . "Block";
-//             if (class_exists($blockClassName)){
-//                 $block[$blockName]= new $blockClassName;
-//                 $blocksArray[$blockName]= $block[$blockName]->returnContent();            
-//             }
-//             else{
-//                 $blocksArray[$blockName]="Error: Block class is not found";
-//             }
+             
+             //getting all blocks
              $block[$blockName] = new BlockLoaderLib($blockName);
              $blocksArray[$blockName] = $block[$blockName]->returnContent();
              
