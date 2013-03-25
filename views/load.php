@@ -1,7 +1,7 @@
 <?php
 
 //this is the class wich will pack data to approporiate view
-class TemplateView
+class LoadView
 {   
     private $htmlPath;
     private $controller = 'template';

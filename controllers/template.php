@@ -4,24 +4,36 @@
 class TemplateController
 {
     //defining view that will be loaded
-    protected $viewName = "template";
+    protected $controllerName = "template";
     protected $viewHtml= "index";
-
-    //this is a test method which sends request to model
-    //gets data form model
-    //and requests packing to view
+    protected $viewObj;
     
-    // this is a template of requested action
+    private function invokeLoader ($modelReturn)
+    {
+        //here we are packind data
+        //1st we initiate the Obj
+         $this->viewObj=new ViewLoaderController($this->viewHtml, $this->controllerName);
+        
+        //then we request the render
+        $this->viewObj->packView($modelReturn);
+        
+        //and return final render
+        return $this->viewObj->viewRender;
+    }
     
     public function listAction (array $getVars)
     {
-        //here we initiate the model obj and request the data
+        //here we initiate the model obj and request the data. This will be differnt for models
+        
         $newModel = new TemplateListModel;
         $modelReturn = $newModel->returnData($getVars);
         
-        //at this point we request data to be packed to view and returned form controller
-        return $this->packToView($modelReturn);
-
+        //define html if different then above
+        #$this->viewHtml= "index";
+        
+        //start loader
+        return $this->invokeLoader($modelReturn);
+        
     }
      public function dbAction (array $getVars)
     {
@@ -30,7 +42,7 @@ class TemplateController
         $modelReturn = $newModel->returnData($getVars);
         
         //at this point we request data to be packed to view and returned form controller
-        return $this->packToView($modelReturn);
+        return $this->invokeLoader($modelReturn);
 
     }
     
@@ -42,17 +54,8 @@ class TemplateController
         $modelReturn = $newModel->returnData($getVars);
         
         //at this point we request data to be packed to view and returned form controller
-        return $this->packToView($modelReturn);
+        return $this->invokeLoader($modelReturn);
 
     }
-    
-    //the following method sends data to view and returns result to public method
-    public function packToView($dataToPack)
-    {
-        $viewClass = ucfirst($this->viewName) . "View";
-        $view = new $viewClass;
-        $view->setHtml($this->viewHtml);
-        $mainRender = $view->returnData($dataToPack);
-        return $mainRender;
-    }
+
 }
