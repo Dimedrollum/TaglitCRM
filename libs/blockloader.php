@@ -1,7 +1,7 @@
 <?php
 
 //this class contains the fetched data from HTML
-class BasicBlock
+class BlockLoaderLib
 {
     private $blockName = "links";
     private $blockPath;

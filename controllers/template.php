@@ -12,7 +12,7 @@ class TemplateController
     {
         //here we are packind data
         //1st we initiate the Obj
-         $this->viewObj=new ViewLoaderController($this->viewHtml, $this->controllerName);
+         $this->viewObj=new ViewLoaderLib($this->viewHtml, $this->controllerName);
         
         //then we request the render
         $this->viewObj->packView($modelReturn);

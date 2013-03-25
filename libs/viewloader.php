@@ -2,7 +2,7 @@
 
 //this class will load pack and return relevant view data
 
-class ViewLoaderController {
+class ViewLoaderLib {
 
     protected $viewToLoad;
     protected $parrentController;

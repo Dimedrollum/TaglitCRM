@@ -19,11 +19,9 @@ class Autoloader {
         // Check "model" classes
         $this->load('Model', $className);
         
-        // Check "block" classes
-        $this->load('Block', $className);
+        // Check "lib" classes
+        $this->load('Lib', $className);
         
-        // Check "view" classes
-        $this->load('View', $className);
     }
         //this function is requested above. This one exactly finds and 'require' the 
     //relevant file

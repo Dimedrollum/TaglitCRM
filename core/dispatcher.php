@@ -70,7 +70,7 @@ class Dispatcher
 //             else{
 //                 $blocksArray[$blockName]="Error: Block class is not found";
 //             }
-             $block[$blockName] = new BasicBlock($blockName);
+             $block[$blockName] = new BlockLoaderLib($blockName);
              $blocksArray[$blockName] = $block[$blockName]->returnContent();
              
              
