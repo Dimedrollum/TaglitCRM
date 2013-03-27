@@ -7,4 +7,4 @@ define('DB_PORT', 3443);
 
 // This folder must contail env.php with the following content
 // define('APP_ENV', 'dev');
-// Possible values: dev, prod
+// Possible values: dev, prod, local
