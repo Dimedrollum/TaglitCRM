@@ -20,10 +20,30 @@ class TemplateDBModel
             new ErrorHandlerLib("DB is not conncted");
                     die();
        }
-       //getting vars
-       $name = mysqli_fetch_assoc($this->dbLink->query("SELECT * FROM  `template` WHERE  `Key` LIKE  'Name'",MYSQLI_USE_RESULT));
-       $age = mysqli_fetch_assoc($this->dbLink->query("SELECT * FROM  `template` WHERE  `Key` LIKE  'Age'",MYSQLI_USE_RESULT));
+       //mysqli stmt
+       
+       //initialize STMT
+       $stmt = $this->dbLink->stmt_init();
+       
+       //start getting results along with Error Handling
+       if(      
+               //preparing the string
+               ($stmt->prepare("SELECT `value` FROM `template` WERE `key` = ?")===FALSE) or
+               //ammending placeholder
+               ($stmt->bind_param(s, 'Age')===FALSE) or
+               //request prepared query execution
+               ($stmt->execute()===FALSE) or
+               //getting results
+               (($result = $stmt->get_result())===FALSE) or
+               //closing the request
+               ($stmt->close()===FALSE)
+               
+               ){
+           new ErrorHandlerLib("DB error $stmt->error");
+       };
+       
+       $name= $result->fetch_assoc();
 
-       return array ('params'=>"these".print_r($params,true), 'name'=>$name['Value'], 'age'=>$age['Value']);
-    }
+       return array ('params'=>"these".print_r($params,true), 'name'=>$name['Value'], 'age'=>'$age[\'Value\']');
+    }   
 }
