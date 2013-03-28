@@ -2,7 +2,7 @@
 /**
  * Testing model with no logics
  */
-class TemplateListModel
+class TemplateListModel extends IndexModel
 {
     /**
      * Returns model date with no logics

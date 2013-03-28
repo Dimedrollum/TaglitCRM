@@ -2,7 +2,7 @@
 /**
  * Testing model with DB connection
  */
-class TemplateDBModel extends ModelLib {
+class TemplateDBModel extends IndexModel {
 
     /**
      * Test method returning data fron DB

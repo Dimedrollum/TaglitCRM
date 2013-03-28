@@ -2,7 +2,7 @@
 /**
  * The parent class for all models
  */
-class ModelLib
+class IndexModel
 {
     /**
      * DB abstraction
@@ -18,3 +18,4 @@ class ModelLib
         $this->db = new DbLib();
     }
 }
+    
