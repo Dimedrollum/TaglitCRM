@@ -1,7 +1,9 @@
 <?php
 
-//this class contains the fetched data from HTML
-class BlockLoaderLib
+/**
+ * This is the Base class for getting blocks
+ */
+class IndexBlock
 {
     private $blockName = "links";
     private $blockPath;
@@ -35,5 +37,3 @@ class BlockLoaderLib
         return ob_get_clean();
     }
 }
-
-?>

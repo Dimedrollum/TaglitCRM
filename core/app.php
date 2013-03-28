@@ -25,6 +25,9 @@ class App
      */
     public function run()
     {
+        //add the Error handler
+        require __DIR__.'/errorhandler.php';
+        
         // Load classloader - autoloader. This component will auto-include files with relevant classes
         require __DIR__.'/autoloader.php';
         new Autoloader();
@@ -35,7 +38,8 @@ class App
         // Load config
         require SERVER_ROOT . '/configs/' . APP_ENV . '.php';
         
-        ///HERE is the latest point where development stopped
+        //load DB handler
+        require __DIR__.'/db.php';
         
         // Process URL
         require __DIR__.'/router.php';

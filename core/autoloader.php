@@ -28,8 +28,9 @@ class Autoloader {
         // Check "model" classes
         $this->load('Model', $className);
         
-        // Check "lib" classes
-        $this->load('Lib', $className);
+        
+        // Check "block" classes
+        $this->load('Block', $className);
         
     }
     /**

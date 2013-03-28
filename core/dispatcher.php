@@ -83,7 +83,7 @@ class Dispatcher
          foreach ($this->blocksRequired as $blockName) {
              
              //getting all blocks
-             $block[$blockName] = new BlockLoaderLib($blockName);
+             $block[$blockName] = new IndexBlock($blockName);
              $blocksArray[$blockName] = $block[$blockName]->returnContent();
              
              
