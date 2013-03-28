@@ -1,8 +1,13 @@
 <?php
+/**
+ * This is a universal DB operation class
+ */
 class DbLib
 {
     private $pdo;
-
+    /**
+     * Class: universal DB operation class. Constructor: defines PDO
+     */
     public function __construct()
     {
         // Data Source Name (DSN)
@@ -18,8 +23,9 @@ class DbLib
     
     /**
      * Run SQL and get results
-     * @param string $sql
-     * @param array $params
+     * 
+     * @param string $sql - prepared SQL request
+     * @param array $params - the substitute values
      * @return PDOStatement
      */
     public function execute($sql, $params=array())

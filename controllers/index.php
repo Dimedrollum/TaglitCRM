@@ -1,6 +1,7 @@
 <?php
 // this is a test controller
 //the controller class needs to initiate 
+
 class IndexController
 {
     //defining view that will be loaded
@@ -8,6 +9,12 @@ class IndexController
     protected $viewHtml= "index";
     protected $viewObj;
     
+    /**
+     * This method invockes ViewLoader Class
+     * 
+     * @param array $modelReturn
+     * @return string
+     */
     private function invokeLoader ($modelReturn)
     {
         //here we are packind data
@@ -20,7 +27,12 @@ class IndexController
         //and return final render
         return $this->viewObj->viewRender;
     }
-    
+    /**
+     * this is a public testing Action to envoke a particular model
+     * 
+     * @param array $getVars - Keys=>Values from GET
+     * @return string - this string contain HTML of generated view
+     */
     public function listAction (array $getVars)
     {
         //here we initiate the model obj and request the data
@@ -31,8 +43,12 @@ class IndexController
         return $this->invokeLoader($modelReturn);
 
     }
-    
-    //this is an index action
+    /**
+     * this is a public testing Action to envoke a particular model
+     * 
+     * @param array $getVars - Keys=>Values from GET
+     * @return string - this string contain HTML of generated view
+     */
      public function indexAction (array $getVars)
     {
         //here we initiate the model obj and request the data
@@ -41,7 +57,6 @@ class IndexController
         
         //at this point we request data to be packed to view and returned form controller
         return $this->invokeLoader($modelReturn);
-
     }
 
 }

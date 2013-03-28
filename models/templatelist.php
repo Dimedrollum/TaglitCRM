@@ -1,9 +1,15 @@
 <?php
-//this PHP will be alled by controller. It is assumed that it contains logics of
-//getting appropriate news
-
+/**
+ * Testing model with no logics
+ */
 class TemplateListModel
 {
+    /**
+     * Returns model date with no logics
+     * 
+     * @param type $params
+     * @return array - array of data to be packed in view
+     */
    public function returnData($params)
    {
        $modelResult['params'] = "The sent parmas to model are". print_r($params, true);

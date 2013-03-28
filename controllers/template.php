@@ -1,6 +1,7 @@
 <?php
 // this is a test controller
 //the controller class needs to initiate 
+
 class TemplateController
 {
     //defining view that will be loaded
@@ -8,6 +9,11 @@ class TemplateController
     protected $viewHtml= "index";
     protected $viewObj;
     
+    /**
+     * 
+     * @param type $modelReturn
+     * @return type
+     */
     private function invokeLoader ($modelReturn)
     {
         //here we are packind data
@@ -20,7 +26,12 @@ class TemplateController
         //and return final render
         return $this->viewObj->viewRender;
     }
-    
+    /**
+     * this is a public testing Action to envoke a particular model
+     * 
+     * @param array $getVars - Keys=>Values from GET
+     * @return string - this string contain HTML of generated view
+     */
     public function listAction (array $getVars)
     {
         //here we initiate the model obj and request the data. This will be differnt for models
@@ -32,9 +43,16 @@ class TemplateController
         #$this->viewHtml= "index";
         
         //start loader
+        //return ViewLoaderLib
         return $this->invokeLoader($modelReturn);
         
     }
+    /**
+     * this is a public testing Action which invokes a model with DB connection
+     * 
+     * @param array $getVars - Keys=>Values from GET
+     * @return string - this string contain HTML of generated view
+     */
      public function dbAction (array $getVars)
     {
         //here we initiate the model obj and request the data
@@ -46,7 +64,12 @@ class TemplateController
 
     }
     
-    //this is an index action
+    /**
+     * this is a public testing Action to envoke a particular model
+     * 
+     * @param array $getVars - Keys=>Values from GET
+     * @return string - this string contain HTML of generated view
+     */
      public function indexAction (array $getVars)
     {
         //here we initiate the model obj and request the data

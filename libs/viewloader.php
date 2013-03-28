@@ -1,7 +1,8 @@
 <?php
 
-//this class will load pack and return relevant view data
-
+/*This is a universal calss wich prepares appropriate view accordind to controller
+ * and returns view data with ammended vars to Dispatcher
+ */
 class ViewLoaderLib {
 
     protected $viewToLoad;
@@ -11,7 +12,9 @@ class ViewLoaderLib {
     protected $viewPath;
 
     // definning view which will be laoded and returned
-
+    /**
+     * 
+     */
     public function __construct($viewToLoad, $controller) {
         $this->viewToLoad = $viewToLoad;
         $this->parrentController = $controller;
@@ -28,7 +31,7 @@ class ViewLoaderLib {
     }
     
     //load the appropriate view
-    protected function loadView()
+    public function loadView()
     {
         //check model error
         if (is_null($this->modelReturn)){

@@ -6,14 +6,24 @@ class BlockLoaderLib
     private $blockName = "links";
     private $blockPath;
 
-//get the block name and block path during the obj creation
+/**
+ * Class: Fetches HTML data from block HTMLs
+ * Constructor: defines class attributes
+ * 
+ * @param string $block - block name
+ */
+        
     public function __construct($block)
     {
         $this->blockName = $block;
         $this->blockPath = SERVER_ROOT."/templates/blocks/".$this->blockName.".php";
         
     }
-    // request the HTML and send it back as a return
+    /**
+     * Find the relevant Block HTML and return it
+     * 
+     * @return string - the erapped HTML block
+     */
     public function returnContent()
     {
         if (!file_exists($this->blockPath)){

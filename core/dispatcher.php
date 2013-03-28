@@ -1,8 +1,9 @@
 <?php
 
-//this is a dispatcher which will sends requests to appropriate MVC as long as 
-//any additional blocks required
-
+/**
+ * this is a dispatcher which will sends requests to appropriate MVC as long as 
+ *any additional blocks required
+ */
 class Dispatcher
 {
     //at this point i declare all class atributes
@@ -11,7 +12,11 @@ class Dispatcher
     protected $actionParams;
     protected $blocksRequired=array ('header','menu','footer','links');
     
-    //next part initiated the class atributes from input
+    /**
+     * Defines the Dispatcher calss attributes
+     * 
+     * @param array $dispatchRequest - the parsed Request data (class, action, params)
+     */
     public function __construct($dispatchRequest) 
     {
         
@@ -20,8 +25,13 @@ class Dispatcher
         $this->actionParams = $dispatchRequest['params'];
       
     }
-    //this is a main method which is called from App. The main purpose is
-    //to send request to Main and Blocks and collect the return array
+
+    /**
+     * this is a main method which is called from App. The main purpose is
+     * to send request to Main and Blocks and collect the return array
+     * 
+     * @return array - the full data fetched from MVC and blocks
+     */
     public function build()
     {
         //here we get the values of main by initiating getMainData method.
@@ -34,8 +44,11 @@ class Dispatcher
         return $buildContent;
             }
             
-    //this function check whether correct data is requested and returns the Main
-    // data
+    /**
+     * Invoke MVC and return view data
+     * 
+     * @return string - Main View data from MVC
+     */
     private function getMainData()
         {
             //check if controller exists
@@ -60,7 +73,11 @@ class Dispatcher
             }
             
         }
-        // this function is to call all blocks and get data from them.
+    /**
+     * invoke Block Loader an get all blocks HTMLs
+     * 
+     * @return array - Array with Strings containing all Blocks HTMLs
+     */
     private function getBlocks()
     {
          foreach ($this->blocksRequired as $blockName) {

@@ -8,7 +8,11 @@ class Layout
     protected $layoutHtml = "index";
     protected $htmlPath;
     
-    //the constructor sets the atributes according request
+    /**
+     * Sets Layout Attributest from Dispatcher content
+     * 
+     * @param array $sentContent - COntains Main string and Block's array of strings
+     */
     public function __construct($sentContent)
     {   
         
@@ -30,6 +34,9 @@ class Layout
         
 
     }
+    /**
+     * the final rendering of page. Extracts Content vars and includes appropriate tempate
+     */
     public function render()
     {
             extract($this->content);

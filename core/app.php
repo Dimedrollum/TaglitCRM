@@ -7,7 +7,9 @@ class App
     // modified $_GET
     protected $requestParams;
     
-    // Sets values of properties (that need some calculations) on creating new object
+    /**
+     * fetch request params from __GET
+     */
     public function __construct()
     {
         $this->requestPath = (!empty($_GET['q'])) ? $_GET['q'] : null;
@@ -18,7 +20,9 @@ class App
     }
     
     //this part is gettin the all application parts connected
-    
+    /**
+     * Connect all applicaton parts
+     */
     public function run()
     {
         // Load classloader - autoloader. This component will auto-include files with relevant classes

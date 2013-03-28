@@ -1,4 +1,7 @@
 <?php
+/**
+ * The parent class for all models
+ */
 class ModelLib
 {
     /**
@@ -7,6 +10,9 @@ class ModelLib
      */
     protected $db;
     
+    /**
+     * Creates a DbLib object
+     */
     public function __construct()
     {
         $this->db = new DbLib();
